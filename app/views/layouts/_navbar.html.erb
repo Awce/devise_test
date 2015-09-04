@@ -1,0 +1,38 @@
+<nav class="navbar" role="navigation">
+  <div class="row" data-equalizer>
+    <div class="small-12 medium-8 large-4 columns">
+      <figure>
+        <%= link_to image_tag("logo.png", :alt=> "logo"), root_path %>
+      </figure>
+    </div>
+    <div class="large-8 columns">
+      <div class="row">
+        <div class="animated slideInDown small-12 text-right columns">
+           <% if user_signed_in? %>
+            <h6><strong><%= current_user.email %></strong>, tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href=""> ¿Como llegar?</a> 
+            <% if notice %>
+              <%= notice %>
+            <% end %>
+            <% if alert %>
+              <%= alert %>
+            <% end %>
+          </h6>
+           <% else %>
+            <h6>Tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href=""> ¿Como llegar?</a></h6>
+           <% end %>
+        </div>
+      </div>
+      <nav>
+        <ul class="legals1">
+            <% if user_signed_in? %>          
+              <%= link_to 'Editar cuenta', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <% else %>
+              <%= link_to "Regístrate", new_user_registration_path, :class => 'navbar-link'  %> |
+              <%= link_to "Inicia sesión", new_user_session_path, :class => 'navbar-link'  %>
+            <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</nav>

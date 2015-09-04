@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>DeviseTest</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "El Castillo de la Fantasía | Joyería de Fantasía Fina, Pelucas y Postizos, Extensiones de Cabello y todo lo relacionado al Cabello." %></title>
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <%= render :partial => "layouts/navbar" %>
+
+  <%= yield %>
+
+    <%= render :partial => "layouts/footer" %>
+
+  </body>
 </html>
+
+

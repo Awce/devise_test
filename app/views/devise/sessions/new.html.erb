@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="large-12 columns cuadro1">
+    <h1 class="cuadro">Iniciar sesión</h1>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <small class="cuadro"><%= alert %></small>
+    <small class="cuadro"><%= alert %></small>  
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Iniciar sesión", :class => 'button small radius' %>
+      </div>
+    <% end %>
+
+    <nav>
+      <ul class="legals1">
+        <%= render "devise/shared/links" %>
+      </ul>
+    </nav> 
+  </div>
+</div>

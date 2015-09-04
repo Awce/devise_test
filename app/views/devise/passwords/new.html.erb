@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="large-12 columns cuadro1">
+		<h1 class="cuadro">¿Olvidaste tu contraseña?</h1>
+
+		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div class="field">
+		    <%= f.label :email %>
+		    <%= f.email_field :email, autofocus: true %>
+		  </div>
+
+		  <div class="actions">
+		    <%= f.submit "Enviarme instrucciones para restablecer la contraseña", :class => 'button small radius' %>
+		  </div>
+		<% end %>
+
+		 <nav>
+		   <ul class="legals1">
+		    <%= render "devise/shared/links" %>
+		   </ul>
+		 </nav> 
+	</div>
+</div>

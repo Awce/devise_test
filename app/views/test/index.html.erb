@@ -1,0 +1,64 @@
+<header class="animated fadeIn">
+  <div class="row">
+    <div class="small-12 large-6 columns cuadro">
+      <h1 class="cuadro"><%= t(".brand") %></h1>
+        <p> <%= t(".copy") %> </p>
+    </div>
+    <div class="small-6 medium-6 large-3 small-centered medium-centered large-centered columns">
+      <div class="logo">
+        <figure>
+          <%= image_tag "bag.png", :alt => t(".brand") %>
+        </figure>
+      </div>
+    </div>
+  </div>
+</header>
+<% if user_signed_in? %>
+  <section>
+    <p>Texto1</p>
+  </section>        
+<% else %>
+  <div class="row">
+    <div class="large-12 columns text-center">
+    <h3 class="cuadro">Visitanos en cualquiera de Nuestras 2 Sucursales.</h3>
+      <div class="small-6 large-6 columns callout radius">
+        <h4>Matriz</h4>
+        <h5><i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong></h5>
+      </div>
+      <div class="small-6 large-6 columns callout radius">
+        <h4>Sucursal</h4>
+        <h5><i class="fa fa-map-marker"></i> <strong>Del Carmen</strong></h5>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="row">
+      <div class="large-12 columns text-center">
+      <h3>¿Como funciona?</h3>
+        <div class="small-4 large-4 columns">
+          <h1 class="fa fa-smile-o fa-4x"></h1>
+          <h1>
+          <small>Hasta tu casa.</small> 
+          </h1>
+          <p></p>
+        </div>
+        <div class="small-4 large-4 columns">
+          <h1 class="fa fa-truck fa-4x"></h1>
+          <h1>
+          <small>Hasta tu casa.</small> 
+          </h1>
+          <p></p>
+        </div>
+        <div class="small-4 large-4 columns">
+          <h1 class="fa fa-truck fa-4x"></h1>
+          <h1>
+          <small>Hasta tu casa.</small> 
+          </h1>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </section>       
+<% end %>
+
+
