@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'start/index'
+  mount Shoppe::Engine => "/shoppe"
+  
+  get 'products/index'
+  get "product/:permalink", to: "products#show", as: "product"
+  post "product/:permalink", to: "products#buy", as: "buy"
 
-  root 'test#index'
+  root 'products#index'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

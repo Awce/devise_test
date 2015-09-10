@@ -15,10 +15,11 @@ violeta = #8134CE
 transparente = rgba(0, 0, 25, 0.6)
 
 body
-  background gris_footer
+  background-image url('castillo.jpg')
+  background-size: cover
 
 a
- color violeta
+ color blanco_bg
 
 h1
   font-size 2em
@@ -26,8 +27,8 @@ h1
   padding 20px 0 0 0
 
 h2
-  color verde
-  font-size .7em
+  color violeta
+  font-size 1em
   font-family: 'Yanone Kaffeesatz' sans-serif
 
 h3
@@ -48,9 +49,7 @@ h6
   font-size .7em
 
 header
-  background-image url('castillo.jpg')
-  background-size: cover
-  padding auto
+ padding auto
 
 footer
  background-color gris_footer
@@ -119,7 +118,7 @@ ul.legals li:last-child::after
 
 ul.legals1 li::after
   content " | "
-  color gris_oscuro
+  color blanco_bg
 
 ul.legals1 li:last-child::after
   content ""
@@ -134,11 +133,11 @@ ul.social
 
 .legals a
   color blanco_bg
-  ::hover
+  :hover
     color violeta
 
 .navbar
-  background blanco_bg
+  background transparente
   border-bottom 2px solid violeta
 
 h1.iconos
@@ -173,6 +172,9 @@ ul li, .legals, .social
 .button
   background violeta
   border-bottom 5px solid transparente
+
+nav li .active
+  background violeta
 
 @media screen and (max-width:960px)
   .legals1

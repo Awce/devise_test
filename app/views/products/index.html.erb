@@ -1,0 +1,46 @@
+<% if user_signed_in? %>
+  <section>
+  	<div class="row">
+  		<div class="large-12 columns">
+  			<% @products.each do |category, products| %>
+  			  <h3><%= category.name %></h3>
+            <div class="row">
+              <div class="large-12 columns panel">
+                <% products.each do |product| %>
+                <ul class="legals1">
+                  <li>
+                    <h4><%= link_to product.name, product_path(product.permalink) %></h4>
+                    <p><%= product.short_description %></p>
+                    <p>Precio: <%= number_to_currency product.price %></p>
+                  </li>
+                </ul>
+                <% end %>
+              </div>
+            </div>
+  			<% end %>
+  		</div>
+  	</div>	
+  </section>
+<% else %>
+  <header class="animated fadeIn">
+    <div class="row">
+      <div class="large-6 columns cuadro">
+        <h1 class="cuadro"><%= t(".brand") %></h1>
+          <p> <%= t(".copy") %> </p>
+      </div>
+      <div class="small-12 large-12 text-center columns">
+        <div class="logo">
+          <figure>
+            <%= image_tag "bag.png", :alt => t(".brand") %>
+          </figure>
+        </div>
+        <div class="large-12 columns cuadro1">
+          <h6 class="cuadro">Recibe en tu correo las ofertas y promociones que tenemos, suscríbete a nuestro boletín.</h6>
+          <a href="" data-reveal-id="myModal1" class="button tiny"><i class="fa fa-newspaper-o"></i> ¡Suscribirme ahora!</a>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </header>
+  <%= render :partial => "test/contact" %>
+<% end %>

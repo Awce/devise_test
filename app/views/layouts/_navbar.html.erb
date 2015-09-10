@@ -1,38 +1,53 @@
 <nav class="navbar" role="navigation">
-  <div class="row" data-equalizer>
-    <div class="small-12 medium-8 large-4 columns">
-      <figure>
-        <%= link_to image_tag("logo.png", :alt=> "logo"), root_path %>
-      </figure>
-    </div>
-    <div class="large-8 columns">
-      <div class="row">
-        <div class="animated slideInDown small-12 text-right columns">
-           <% if user_signed_in? %>
-            <h6><strong><%= current_user.email %></strong>, tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href=""> ¿Como llegar?</a> 
-            <% if notice %>
-              <%= notice %>
-            <% end %>
-            <% if alert %>
-              <%= alert %>
-            <% end %>
-          </h6>
-           <% else %>
-            <h6>Tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href=""> ¿Como llegar?</a></h6>
-           <% end %>
-        </div>
+    <div class="row" data-equalizer>
+      <div class="small-12 medium-8 large-4 columns">
+        <figure>
+          <%= link_to image_tag("logo.png", :alt=> "logo"), root_path %>
+        </figure>
       </div>
-      <nav>
-        <ul class="legals1">
-            <% if user_signed_in? %>          
-              <%= link_to 'Editar cuenta', edit_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-            <% else %>
-              <%= link_to "Regístrate", new_user_registration_path, :class => 'navbar-link'  %> |
-              <%= link_to "Inicia sesión", new_user_session_path, :class => 'navbar-link'  %>
-            <% end %>
-        </ul>
-      </nav>
+      <div class="large-8 columns">
+        <div class="row">
+          <div class="animated slideInDown small-12 text-right columns">
+             <% if user_signed_in? %>
+              <h6 class="label radius"><strong><%= current_user.email %></strong>, tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href="" data-reveal-id="myModal"> ¿Como llegar?</a>
+              <% if notice %>
+                <%= notice %>
+              <% end %>
+              <% if alert %>
+                <%= alert %>
+              <% end %>
+            </h6>
+             <% else %>
+              <h6 class="label radius">Tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href="" data-reveal-id="myModal"> ¿Como llegar?</a></h6>
+             <% end %>
+          </div>
+        </div>
+        <nav>
+          <ul class="legals1">
+              <% if user_signed_in? %>
+                <li><%= link_to 'Editar cuenta', edit_user_registration_path, :class => 'navbar-link' %></li> 
+                <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
+                <li>
+                  <%= image_tag "min.png", :alt => "Mi cesta" %>
+                  <span class="label radius"><%= pluralize current_order.total_items, 'item'%></span> 
+                </li>                 
+              <% else %>
+                <li><%= link_to "Regístrate", new_user_registration_path, :class => 'navbar-link'  %></li>
+                <li><%= link_to "Inicia sesión", new_user_session_path, :class => 'navbar-link'  %></li> 
+              <% end %>
+          </ul>
+        </nav>
+      </div>
     </div>
-  </div>
 </nav>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">Vístanos en tu sucursal favorita.</h3>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="myModal1" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">Suscríbete.</h3>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+

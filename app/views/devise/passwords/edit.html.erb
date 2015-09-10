@@ -1,4 +1,4 @@
-<div class="row">
+<div class="animated fadeIn row">
   <div class="large-12 columns cuadro1">
     <h1 class="cuadro">Cambia tu contraseña</h1>
 
@@ -18,16 +18,22 @@
           <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
-
-        <div class="actions">
-          <%= f.submit "Cambiar mi contraseña", :class => 'button small radius' %>
-        </div>
+        
+        <div class="row">
+          <div class="small-6 large-6 columns">
+            <div class="actions">
+              <%= f.submit "Cambiar mi contraseña", :class => 'button small radius' %>
+            </div>
+          </div>
+          <div class="small-6 large-6 columns">
+           <nav>
+             <ul class="legals1">
+              <%= render "devise/shared/links" %>
+             </ul>
+           </nav> 
+          </div>
+        </div>        
       <% end %>
-     <nav>
-       <ul class="legals1">
-        <%= render "devise/shared/links" %>
-       </ul>
-     </nav> 
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="animated fadeIn row">
   <div class="large-12 columns cuadro1">
     <h1 class="cuadro">Iniciar sesión</h1>
 
@@ -23,15 +23,20 @@
         </div>
       <% end -%>
 
-      <div class="actions">
-        <%= f.submit "Iniciar sesión", :class => 'button small radius' %>
+      <div class="row">
+        <div class="small-6 large-6 columns">
+          <div class="actions">
+            <%= f.submit "Iniciar sesión", :class => 'button small radius' %>
+          </div>
+        </div>
+        <div class="small-6 large-6 columns">
+          <nav>
+            <ul class="legals1">
+              <%= render "devise/shared/links" %>
+            </ul>
+          </nav> 
+        </div>
       </div>
     <% end %>
-
-    <nav>
-      <ul class="legals1">
-        <%= render "devise/shared/links" %>
-      </ul>
-    </nav> 
   </div>
 </div>

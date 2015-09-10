@@ -1,5 +1,4 @@
-
-  <div class="row">
+  <div class="animated fadeIn row">
     <div class="large-12 columns cuadro1">
       
       <h1 class="cuadro">Edita tu <%= resource_name.to_s.humanize %></h1>
@@ -29,14 +28,15 @@
             <%= f.label :current_password %> <small class="cuadro">(Necesitamos su contraseña actual para confirmar los cambios)</small>
             <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
-
-          <div class="actions">
-            <%= f.submit "Actualizar", :class => 'button small radius' %>
-          </div>
-        <% end %>
-      
-      <h1><small class="cuadro">Cancelar mi cuenta</small></h1>
-       <%= button_to "Cancelar", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete, :class => 'button small radius' %>
+          <div class="row">
+            <div class="small-6 large-6 columns">
+              <div class="actions">
+                <%= f.submit "Actualizar", :class => 'button small radius' %>
+                <h1><small class="cuadro">Cancelar mi cuenta</small></h1>
+                 <%= button_to "Cancelar", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete, :class => 'button small radius' %>
+              </div>
+            </div>
+          </div>        
+        <% end %>      
     </div>
   </div>
-  
