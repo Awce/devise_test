@@ -1,25 +1,25 @@
 <% if user_signed_in? %>
   <section>
-  	<div class="row">
-  		<div class="large-12 columns">
-  			<% @products.each do |category, products| %>
-  			  <h3><%= category.name %></h3>
-            <div class="row">
-              <div class="large-12 columns panel">
-                <% products.each do |product| %>
-                <ul class="legals1">
-                  <li>
-                    <h4><%= link_to product.name, product_path(product.permalink) %></h4>
-                    <p><%= product.short_description %></p>
-                    <p>Precio: <%= number_to_currency product.price %></p>
-                  </li>
-                </ul>
-                <% end %>
+    <div class="row">
+      <div class="large-12 columns" data-equalizer>
+        <% @products.each do |category, products| %>
+          <h3><%= category.name %></h3>
+          <ul>
+            <% products.each do |product| %>
+              <div class="row" data-equalizer>
+                  <div class="large-3 panel columns" data-equalizer-watch>
+                    <li class="contenedor">
+                      <h4><%= link_to product.name, product_path(product.permalink) %></h4>
+                      <p><%= product.short_description %></p>
+                      <p><b>Precio:</b> <%= number_to_currency product.price %></p>               
+                    </li>
+                  </div>
               </div>
-            </div>
-  			<% end %>
-  		</div>
-  	</div>	
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
   </section>
 <% else %>
   <header class="animated fadeIn">
@@ -39,7 +39,6 @@
           <a href="" data-reveal-id="myModal1" class="button tiny"><i class="fa fa-newspaper-o"></i> ¡Suscribirme ahora!</a>
         </div>
       </div>
-      <hr>
     </div>
   </header>
   <%= render :partial => "test/contact" %>

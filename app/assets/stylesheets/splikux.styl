@@ -18,9 +18,6 @@ body
   background-image url('http://elcastillodelafantasia.com.mx/img/castillo.jpg')
   background-size: cover
 
-a
- color blanco_bg
-
 h1
   font-size 2em
   font-family: 'Yanone Kaffeesatz' sans-serif
@@ -45,7 +42,7 @@ h5
   font-size .6em
 
 h6
-  color gris_claro
+  color blanco_bg
   font-size .7em
 
 header
@@ -104,11 +101,13 @@ section
 .splik_icon-youtube4
   color rojo
 
-ul.legals, ul.social, ul.legals1
+ul.legals, ul.social, ul.legals1 li.contenedor
   list-style none
 
 ul.legals li, ul.social li, ul.legals1 li
   display inline-block
+  a 
+    color blanco_bg
 
 ul.legals li::after
   content " | "
@@ -154,6 +153,32 @@ h1.iconos
   border-radius: 3px;
   padding auto
 
+.contenedor
+  display inline-block
+  list-style none
+  padding 5px
+
+.circle 
+  line-height 0 
+  display inline-block
+  margin 5px
+  border 2px solid rgba(255,255,255,0.4)
+  border-radius 50%
+  transition linear 0.25s
+  height 32px
+  width 32px
+
+.circle img 
+  border-radius 50%
+
+.circle:hover 
+  transition ease-out 0.2s
+  border 2px solid transparente
+  -webkit-transition ease-out 0.2s
+
+a.circle 
+  color: transparente
+
 .legals1
   font-size 20px
   text-align right
@@ -177,6 +202,9 @@ nav li .active
   background violeta
 
 @media screen and (max-width:960px)
+  .msj
+    overflow hidden
+
   .legals1
     font-size 1em
     float center
@@ -184,3 +212,6 @@ nav li .active
 @media screen and (max-width:480px)
   .random, .intext1
     text-align center
+
+  .msj
+    overflow hidden

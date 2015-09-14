@@ -16,7 +16,8 @@ gem "font-awesome-rails"
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'shoppe'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'gravatar_image_tag'
+gem 'will_paginate', '~> 3.0.7'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
