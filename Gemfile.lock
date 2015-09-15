@@ -135,6 +135,10 @@ GEM
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
     orm_adapter (0.5.0)
+    paypal-sdk-rest (1.3.2)
+      multi_json (~> 1.0)
+      uuidtools (~> 2.1)
+      xml-simple
     pg (0.18.2-x86-mingw32)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
@@ -202,6 +206,9 @@ GEM
       rails (>= 4.0.0, < 5.0)
       ransack (>= 1.2.0, < 1.6.3)
       roo (>= 1.13.0, < 1.14)
+    shoppe-paypal (1.2.0)
+      paypal-sdk-rest
+      shoppe (> 1, < 2)
     spreadsheet (1.0.5)
       ruby-ole (>= 1.0)
     sprockets (3.3.4)
@@ -223,6 +230,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -231,11 +239,13 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
+    xml-simple (1.1.5)
 
 PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
@@ -252,6 +262,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   sass-rails (~> 5.0)
   shoppe
+  shoppe-paypal
   sqlite3
   turbolinks
   tzinfo-data

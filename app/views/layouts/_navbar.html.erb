@@ -7,49 +7,21 @@
       </div>
       <div class="large-8 columns">
         <div class="row">
-          <div class="animated slideInDown small-12 text-right columns msj">
-             <% if user_signed_in? %>
-              <h6><%= gravatar_image_tag(current_user.email, :alt=> current_user.email, :class=> 'circle') %> <span class="cuadro"><%= current_user.email %></span>, tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href="" data-reveal-id="myModal"> ¿Como llegar?</a>
-              <% if notice %>
-                <%= notice %>
-              <% end %>
-              <% if alert %>
-                <%= alert %>
-              <% end %>
-            </h6>
-             <% else %>
-              <h6>Tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong><a href="" data-reveal-id="myModal"> ¿Como llegar?</a></h6>
-             <% end %>
+          <div class="animated slideInDown small-12 columns">
+            <nav>
+              <ul class="legals1">
+                <% if user_signed_in? %>
+                  <li><%= link_to 'Editar cuenta', edit_user_registration_path, :class => 'navbar-link' %></li> 
+                  <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>    
+                  <li><%= image_tag "min.png", :alt => "Mi cesta" %> <span class="label radius"><%= pluralize current_order.total_items, 'item' %></span></li>                 
+                <% else %>                
+                  <li><%= link_to "Regístrate", new_user_registration_path, :class => 'navbar-link'  %></li>
+                  <li><%= link_to "Inicia sesión", new_user_session_path, :class => 'navbar-link'  %></li>                
+                <% end %>
+              </ul>              
+            </nav>
           </div>
         </div>
-        <nav>
-          <ul class="legals1">
-              <% if user_signed_in? %>
-                <li><%= link_to 'Editar cuenta', edit_user_registration_path, :class => 'navbar-link' %></li> 
-                <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
-                <li>
-                  <%= image_tag "min.png", :alt => "Mi cesta" %>
-                  <span class="label radius"><%= pluralize current_order.total_items, 'item'%></span> 
-                </li>                 
-              <% else %>
-                <li><%= link_to "Regístrate", new_user_registration_path, :class => 'navbar-link'  %></li>
-                <li><%= link_to "Inicia sesión", new_user_session_path, :class => 'navbar-link'  %></li> 
-              <% end %>
-          </ul>
-        </nav>
       </div>
     </div>
-</nav>
-
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h3 id="modalTitle">Vístanos en tu sucursal favorita.</h3>
-    <%= render :partial => "test/maps" %>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-
-<div id="myModal1" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h3 id="modalTitle">Suscríbete.</h3>
-    <%= render :partial => "test/newslatter" %>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-
+</nav> 

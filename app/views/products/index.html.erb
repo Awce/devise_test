@@ -1,14 +1,15 @@
 <% if user_signed_in? %>
   <section>
     <div class="row">
-      <div class="large-12 columns" data-equalizer>
+      <div class="large-8 columns" data-equalizer>
         <% @products.each do |category, products| %>
           <h3><%= category.name %></h3>
           <ul>
             <% products.each do |product| %>
               <div class="row" data-equalizer>
-                  <div class="large-3 panel columns" data-equalizer-watch>
+                  <div class="large-4 panel callout radius columns" data-equalizer-watch>
                     <li class="contenedor">
+                      <img src="product.default_image">
                       <h4><%= link_to product.name, product_path(product.permalink) %></h4>
                       <p><%= product.short_description %></p>
                       <p><b>Precio:</b> <%= number_to_currency product.price %></p>               
@@ -18,6 +19,24 @@
             <% end %>
           </ul>
         <% end %>
+      </div>
+      <div class="large-4 columns text-center" data equalizer>
+        <div class="large-12">
+          <h2>Tu sucursal mas cercana es: <i class="fa fa-map-marker"></i> <strong>Justo Sierra</strong>
+            <% if notice %>
+              <%= notice %>
+            <% end %>
+            <% if alert %>
+              <%= alert %>
+            <% end %>
+          </h2>
+        </div>
+        <div class="large-12 panel">
+          <h2><%= gravatar_image_tag(current_user.email, :alt=> current_user.email, :class=> 'circle') %> <%= current_user.email %></h2>
+          <h2>Mi cuenta va: <i class="fa fa-shopping-cart"></i> <%= number_to_currency current_order.total_before_tax %></h2>
+          <%= link_to "Ver mi canasta", basket_path, :class => 'button tiny expand radius' %>
+          <%= link_to "Pagar", checkout_path, :class => 'button tiny expand radius' %>              
+        </div>         
       </div>
     </div>
   </section>

@@ -10,11 +10,12 @@
 			<p><%= @product.short_description %></p>
 			<p>
 			  <b><%= number_to_currency @product.price %></b>
+			  <%= link_to "Agregar", product_path(@product.permalink), :method => :post %>
 			</p>
 
 			<%= simple_format @product.description %>
 
-			<%= link_to "Regresar a la lista", root_path, :class => 'button small radius' %>
+			<%= link_to "Regresar a la lista", root_path, :class => 'button tiny radius' %>
 		</div>
 	</div>
 </section>

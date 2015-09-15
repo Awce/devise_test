@@ -1,0 +1,9 @@
+<section>
+	<div class="row">
+		<div class="large-12 columns">
+			<h3>Tu cuenta</h3>
+			<%= render 'items', :order => current_order %>
+		</div>
+	</div>
+	<p><%= link_to 'Vaciar', basket_path, :method => :delete %></p>
+</section>
